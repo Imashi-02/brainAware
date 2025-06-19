@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainAware - Find a Doctor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html" class="logo">Brain<i class="fas fa-brain"></i>ware</a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="find-doctor.html" class="active">Find a Doctor</a></li>
+                    <li><a href="progress.html">Progress Tracking</a></li>
+                    <li><a href="report.html">Report History</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Find a Specialist</h1>
+    </section>
+
+    <section class="doctor-search">
+        <div class="container">
+            <div class="PageBlock">
+                <div class="verticalLine"></div>
+                <div class="Clear"></div>
+            </div>
+            <h1><center>CONNECT WITH NEUROLOGY SPECIALISTS</center></h1>
+            <p><center>Search our network of board-certified neurologists and neurosurgeons</center></p>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search by name, specialty, or hospital...">
+                    <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter">
+                        <label for="specialty">Specialty:</label>
+                        <select id="specialty">
+                            <option value="all">All Specialties</option>
+                            <option value="neuro-oncology">Neuro-Oncology</option>
+                            <option value="neurosurgery">Neurosurgery</option>
+                            <option value="neuroradiology">Neuroradiology</option>
+                            <option value="pediatric">Pediatric Neurology</option>
+                        </select>
+                    </div>
+                    <div class="filter">
+                        <label for="location">Location:</label>
+                        <select id="location">
+                            <option value="all">All Locations</option>
+                            <option value="colombo">Colombo</option>
+                            <option value="kandy">Kandy</option>
+                            <option value="galle">Galle</option>
+                            <option value="jaffna">Jaffna</option>
+                        </select>
+                    </div>
+                    <div class="filter">
+                        <label for="hospital">Hospital:</label>
+                        <select id="hospital">
+                            <option value="all">All Hospitals</option>
+                            <option value="nawaloka">Nawaloka Hospital</option>
+                            <option value="asiri">Asiri Hospitals</option>
+                            <option value="durdans">Durdans Hospital</option>
+                            <option value="lahugala">Lanka Hospitals</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Results Section -->
+            <div class="search-results" id="searchResults">
+                <div class="results-header">
+                    <h2 id="resultsCount">0 Doctors Found</h2>
+                    <div class="sort-options">
+                        <label for="sortBy">Sort by:</label>
+                        <select id="sortBy">
+                            <option value="rating">Highest Rating</option>
+                            <option value="experience">Most Experienced</option>
+                            <option value="name">Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="doctor-results" id="doctorResults">
+                    <!-- Doctors will appear here after search -->
+                    <div class="no-results">
+                        <i class="fas fa-search"></i>
+                        <p>Search for doctors to see results</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book Appointment</h2>
+            <div class="modal-body">
+                <div class="doctor-info">
+                    <img id="modalDoctorImage" src="" alt="Doctor">
+                    <div>
+                        <h3 id="modalDoctorName"></h3>
+                        <p id="modalDoctorSpecialty"></p>
+                        <p id="modalDoctorHospital"></p>
+                        <p id="modalDoctorLocation"></p>
+                    </div>
+                </div>
+                
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="appointmentDate">Date:</label>
+                        <input type="text" id="appointmentDate" class="datepicker" placeholder="Select date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentTime">Time:</label>
+                        <select id="appointmentTime" required>
+                            <option value="">Select time</option>
+                            <!-- Times will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patientName">Your Name:</label>
+                        <input type="text" id="patientName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patientPhone">Phone Number:</label>
+                        <input type="tel" id="patientPhone" placeholder="+94" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patientEmail">Email:</label>
+                        <input type="email" id="patientEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="patientNotes">Notes (optional):</label>
+                        <textarea id="patientNotes" rows="3" placeholder="Any special requests or information about your condition"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-book-consult">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="footer">
+        <hr>
+        <h4>About BrainAware</h4>
+        <p>We combine cutting-edge AI with medical expertise to provide accessible brain health analysis.
+            <br> Our mission is to make early tumor detection available to everyone.
+        </p>
+
+        <div class="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-linkedin"></i>
+        </div>
+        <p>Made with <i class="fas fa-heart"></i> by BrainAware Team</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a> |
+            <a href="ethics.html">AI Ethics</a>
+        </div>
+        <p>Copyright © 2023 <a href="index.html">BrainAware</a>. All Rights Reserved</p>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="web.js"></script>
+
+</body>
+</html>

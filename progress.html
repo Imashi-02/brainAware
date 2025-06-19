@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainAware - Progress Tracking</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html" class="logo">Brain<i class="fas fa-brain"></i>ware</a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="find-doctor.html">Find a Doctor</a></li>
+                    <li><a href="progress.html" class="active">Progress Tracking</a></li>
+                    <li><a href="report.html">Report History</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Progress Tracking</h1>
+    </section>
+
+    <section class="progress-tracking">
+        <div class="container">
+            <div class="PageBlock">
+                <div class="verticalLine"></div>
+                <div class="Clear"></div>
+            </div>
+            <h1>YOUR TREATMENT JOURNEY</h1>
+            <p>Track your brain health metrics over time</p>
+
+            <div class="timeline-controls">
+                <div class="time-filter">
+                    <label for="timeRange">Time Period:</label>
+                    <select id="timeRange">
+                        <option value="3m">Last 3 Months</option>
+                        <option value="6m">Last 6 Months</option>
+                        <option value="1y" selected>Last Year</option>
+                        <option value="all">All Time</option>
+                    </select>
+                </div>
+                <div class="metric-filter">
+                    <label for="metricType">Metric:</label>
+                    <select id="metricType">
+                        <option value="lambertex">Lambertex Score</option>
+                        <option value="volume">Tumor Volume</option>
+                        <option value="amidone">Amidone Levels</option>
+                        <option value="symptoms">Symptom Frequency</option>
+                    </select>
+                </div>
+                <button id="updateChart" class="btn">Update View</button>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="progressChart"></canvas>
+                 <img src="C:\Users\shabr\OneDrive\Documents\finalproject\pictures\chart2.png" alt="chart">
+            </div>
+
+            <div class="scan-comparison">
+                <h2><i class="fas fa-clipboard-list"></i> Recent Scan Comparison</h2>
+                <div class="comparison-grid">
+                    <div class="scan-card">
+                        <div class="scan-header">
+                            <h3>Initial Scan</h3>
+                            <span class="scan-date">Jan 15, 2023</span>
+                        </div>
+                        <div class="scan-image">
+                            <img src="C:\Users\shabr\OneDrive\Documents\finalproject\pictures\OIP.jpeg" alt="Initial Scan">
+                        </div>
+                        <div class="scan-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Lambertex</span>
+                                <span class="metric-value">4.2</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Volume</span>
+                                <span class="metric-value">2.1 cm³</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Amidone</span>
+                                <span class="metric-value">120 ng/mL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scan-card">
+                        <div class="scan-header">
+                            <h3>Latest Scan</h3>
+                            <span class="scan-date">Dec 10, 2023</span>
+                        </div>
+                        <div class="scan-image">
+                            <img src="C:\Users\shabr\OneDrive\Documents\finalproject\pictures\lates).jpeg" alt="Latest Scan">
+                        </div>
+                        <div class="scan-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Lambertex</span>
+                                <span class="metric-value">2.8</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Volume</span>
+                                <span class="metric-value">1.8 cm³</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Amidone</span>
+                                <span class="metric-value">85 ng/mL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comparison-results">
+                        <h3><i class="fas fa-chart-line"></i> Progress Analysis</h3>
+                        <div class="result improvement">
+                            <i class="fas fa-arrow-down"></i>
+                            <div class="result-details">
+                                <strong>33% improvement</strong> in Lambertex score
+                                <span>4.2 → 2.8</span>
+                            </div>
+                        </div>
+                        <div class="result improvement">
+                            <i class="fas fa-arrow-down"></i>
+                            <div class="result-details">
+                                <strong>14% reduction</strong> in tumor volume
+                                <span>2.1 cm³ → 1.8 cm³</span>
+                            </div>
+                        </div>
+                        <div class="result improvement">
+                            <i class="fas fa-arrow-down"></i>
+                            <div class="result-details">
+                                <strong>29% decrease</strong> in Amidone levels
+                                <span>120 → 85 ng/mL</span>
+                            </div>
+                        </div>
+                        <div class="doctor-notes">
+                            <h4><i class="fas fa-user-md"></i> Doctor's Notes</h4>
+                            <p>"Significant improvement observed across all metrics. The reduction in tumor markers correlates well with clinical improvement. Recommend continuing current treatment protocol with follow-up scan in 3 months."</p>
+                            <span class="doctor-name">- Dr. Michael Chen, Dec 15, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-breakdown">
+                <h2><i class="fas fa-chart-pie"></i> Metrics Breakdown</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Lambertex Score Trend</h3>
+                        <div class="mini-chart-container">
+                            <canvas id="lambertexChart"></canvas>
+                        </div>
+                        <div class="metric-summary">
+                            <div class="summary-item">
+                                <span>Peak:</span>
+                                <strong>4.5 (Mar 2023)</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Current:</span>
+                                <strong>2.8</strong>
+                            </div>
+                            <div class="summary-item improvement">
+                                <span>Change:</span>
+                                <strong>↓ 38%</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Tumor Volume</h3>
+                        <div class="mini-chart-container">
+                            <canvas id="volumeChart"></canvas>
+                        </div>
+                        <div class="metric-summary">
+                            <div class="summary-item">
+                                <span>Peak:</span>
+                                <strong>2.3 cm³ (Apr 2023)</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Current:</span>
+                                <strong>1.8 cm³</strong>
+                            </div>
+                            <div class="summary-item improvement">
+                                <span>Change:</span>
+                                <strong>↓ 22%</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Amidone Levels</h3>
+                        <div class="mini-chart-container">
+                            <canvas id="amidoneChart"></canvas>
+                        </div>
+                        <div class="metric-summary">
+                            <div class="summary-item">
+                                <span>Peak:</span>
+                                <strong>132 ng/mL (Feb 2023)</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Current:</span>
+                                <strong>85 ng/mL</strong>
+                            </div>
+                            <div class="summary-item improvement">
+                                <span>Change:</span>
+                                <strong>↓ 36%</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Symptom Frequency</h3>
+                        <div class="mini-chart-container">
+                            <canvas id="symptomsChart"></canvas>
+                        </div>
+                        <div class="metric-summary">
+                            <div class="summary-item">
+                                <span>Peak:</span>
+                                <strong>18 days/month</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Current:</span>
+                                <strong>6 days/month</strong>
+                            </div>
+                            <div class="summary-item improvement">
+                                <span>Change:</span>
+                                <strong>↓ 67%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="treatment-plan">
+                <h2><i class="fas fa-prescription-bottle-alt"></i> Current Treatment Plan</h2>
+                <div class="plan-grid">
+                    <div class="plan-card">
+                        <h3><i class="fas fa-pills"></i> Medications</h3>
+                        <ul class="medication-list">
+                            <li>
+                                <strong>Temozolomide</strong>
+                                <span>100mg daily</span>
+                                <span class="date">Since Mar 2023</span>
+                            </li>
+                            <li>
+                                <strong>Dexamethasone</strong>
+                                <span>4mg twice daily</span>
+                                <span class="date">Since Jan 2023</span>
+                            </li>
+                            <li>
+                                <strong>Levetiracetam</strong>
+                                <span>500mg twice daily</span>
+                                <span class="date">Since Jan 2023</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="plan-card">
+                        <h3><i class="fas fa-procedures"></i> Therapies</h3>
+                        <ul class="therapy-list">
+                            <li>
+                                <strong>Radiation Therapy</strong>
+                                <span>Completed: May 2023 (30 sessions)</span>
+                            </li>
+                            <li>
+                                <strong>Physical Therapy</strong>
+                                <span>2x/week (ongoing)</span>
+                            </li>
+                            <li>
+                                <strong>Cognitive Therapy</strong>
+                                <span>1x/week (ongoing)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="plan-card">
+                        <h3><i class="fas fa-calendar-check"></i> Next Steps</h3>
+                        <ul class="nextsteps-list">
+                            <li>
+                                <strong>Next MRI Scan</strong>
+                                <span>March 15, 2024</span>
+                            </li>
+                            <li>
+                                <strong>Oncology Follow-up</strong>
+                                <span>January 30, 2024</span>
+                            </li>
+                            <li>
+                                <strong>Physical Therapy Evaluation</strong>
+                                <span>February 10, 2024</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <hr>
+        <h4>About BrainAware</h4>
+        <p>We combine cutting-edge AI with medical expertise to provide accessible brain health analysis.
+            <br> Our mission is to make early tumor detection available to everyone.
+        </p>
+
+        <div class="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-linkedin"></i>
+        </div>
+        <p>Made with <i class="fas fa-heart"></i> by BrainAware Team</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a> |
+            <a href="ethics.html">AI Ethics</a>
+        </div>
+        <p>Copyright © 2023 <a href="index.html">BrainAware</a>. All Rights Reserved</p>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="web.js"></script>
+</body>
+</html>

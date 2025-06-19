@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainAware - Report History</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html" class="logo">Brain<i class="fas fa-brain"></i>ware</a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="find-doctor.html">Find a Doctor</a></li>
+                    <li><a href="progress.html">Progress Tracking</a></li>
+                    <li><a href="report.html" class="active">Report History</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Report History</h1>
+    </section>
+
+    <section class="report-content">
+        <div class="container">
+            <div class="PageBlock">
+                <div class="verticalLine"></div>
+                <div class="Clear"></div>
+            </div>
+            <h1><center>YOUR SCAN REPORTS</center></h1>
+            <p><center>View and manage your historical brain scan analysis reports</center></p>
+
+            <div class="report-filters">
+                <div class="filter">
+                    <label for="reportType">Report Type:</label>
+                    <select id="reportType">
+                        <option value="all">All Reports</option>
+                        <option value="mri">MRI</option>
+                        <option value="ct">CT Scan</option>
+                        <option value="pet">PET Scan</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="timePeriod">Time Period:</label>
+                    <select id="timePeriod">
+                        <option value="all">All Time</option>
+                        <option value="1m">Last Month</option>
+                        <option value="6m">Last 6 Months</option>
+                        <option value="1y">Last Year</option>
+                    </select>
+                </div>
+                <button id="applyFilters" class="btn">Apply Filters</button>
+            </div>
+
+            <div class="report-list">
+                <div class="report-card">
+                    <div class="report-header">
+                        <h2>Scan Result #BR-2023-0042</h2>
+                        <span class="report-date">October 15, 2023</span>
+                    </div>
+                    <div class="report-body">
+                        <div class="report-image">
+                            <img src="C:\Users\shabr\OneDrive\Documents\finalproject\pictures\detected.jpeg" alt="Brain Scan">
+                        </div>
+                        <div class="report-summary">
+                            <div class="summary-item">
+                                <span>Status:</span>
+                                <strong class="positive">Tumor Detected</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Size:</span>
+                                <strong>2.4 cm</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Location:</span>
+                                <strong>Left Temporal Lobe</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Confidence:</span>
+                                <strong>92%</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn btn-view">View Details</button>
+                        <button class="btn btn-download">Download</button>
+                        <button class="btn btn-share">Share</button>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-header">
+                        <h2>Scan Result #BR-2023-0038</h2>
+                        <span class="report-date">August 22, 2023</span>
+                    </div>
+                    <div class="report-body">
+                        <div class="report-image">
+                            <img src="C:\Users\shabr\OneDrive\Documents\finalproject\pictures\scan.jpeg" alt="Brain Scan">
+                        </div>
+                        <div class="report-summary">
+                            <div class="summary-item">
+                                <span>Status:</span>
+                                <strong class="negative">No Tumor Detected</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Size:</span>
+                                <strong>N/A</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Location:</span>
+                                <strong>N/A</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Confidence:</span>
+                                <strong>98%</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="report-actions">
+                        <button class="btn btn-view">View Details</button>
+                        <button class="btn btn-download">Download</button>
+                        <button class="btn btn-share">Share</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <hr>
+        <h4>About BrainAware</h4>
+        <p>We combine cutting-edge AI with medical expertise to provide accessible brain health analysis.
+            <br> Our mission is to make early tumor detection available to everyone.
+        </p>
+
+        <div class="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-linkedin"></i>
+        </div>
+        <p>Made with <i class="fas fa-heart"></i> by BrainAware Team</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a> |
+            <a href="ethics.html">AI Ethics</a>
+        </div>
+        <p>Copyright © 2023 <a href="index.html">BrainAware</a>. All Rights Reserved</p>
+    </section>
+
+    <script src="web.js"></script>
+</body>
+</html>

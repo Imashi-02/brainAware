@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainAware - Sign Up</title>
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href=".vscode/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html" class="logo">Brain
+                <i class="fas fa-brain"></i>ware
+            </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="find-doctor.html">Find a Doctor</a></li>
+                    <li><a href="progress.html">Progress Tracking</a></li>
+                    <li><a href="report.html">Report History</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+<center>
+        <div class="signup-container">
+            <div class="signup-box">
+                <div class="signup-header">
+                    <i class="fas fa-brain"></i>
+                    <h2>Create Your Account</h2>
+                    <p>Join BrainAware to access advanced brain health analysis</p>
+                </div>
+                
+                <form id="signupForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fullName" placeholder="Full Name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                        <span class="toggle-password" onclick="togglePassword('password')">
+                            <i class="fas fa-eye" id="passwordEye"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                        <span class="toggle-password" onclick="togglePassword('confirmPassword')">
+                            <i class="fas fa-eye" id="confirmPasswordEye"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="birthDate" placeholder="Date of Birth" required>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="termsAgree" required>
+                        <label for="termsAgree">I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter">
+                        <label for="newsletter">Subscribe to our health newsletter</label>
+                    </div>
+                    
+                    <button type="submit" class="signup-btn">Create Account</button>
+                    
+                    <div class="login-link">
+                        Already have an account? <a href="login.html">Log in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</center>
+    <script src=".vscode/signup.js"></script>
+</body>
+
+</html>
